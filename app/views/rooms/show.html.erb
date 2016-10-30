@@ -1,0 +1,24 @@
+<div class="container">
+<h1> <%= @room.title %></h1>
+  <hr>
+
+  <div class="btn-group"><%= button_to 'Back', rooms_path, method: :get, class:'btn btn-default'%></div>
+  <% if can? :update, @room %>
+      <div class="btn-group"><%= button_to 'Edit', edit_room_path(@room), method: :get,class:'btn btn-default' %></div>
+<% end %>
+<% if can? :destroy, @room %>
+      <div class="btn-group"><%= button_to 'Delete', room_path(@room), method: :delete, class:'btn btn-default'%></div>
+<% end %>
+  <section id="message_section" >
+
+<div class="messages">
+  <%= render partial: 'messages/messages' %>
+</div>
+    <div class="messageform">
+
+    <%= render partial: 'messages/form' %>
+  </div>
+  </section>
+
+  </div>
+

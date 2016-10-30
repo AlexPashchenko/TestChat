@@ -1,0 +1,5 @@
+
+  <%=image_tag @message.user.avatar.url(:thumb)%>
+  <%= @message.user.username %>
+  <small><%= @message.created_at.to_date %></small>
+  <p><%= message.text %></p>

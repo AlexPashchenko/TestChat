@@ -1,0 +1,14 @@
+<ul class="list-unstyled" >
+
+  <% @messages.each do |message| %>
+      <% next unless message.persisted? %>
+
+      <li><%=image_tag message.user.avatar.url(:thumb)%>
+        <h4 class="media-heading"><%= message.user.username %></h4>
+        <small><%= message.created_at.to_date %></small>
+        <p><%= message.text %></p>
+      </li>
+  <% end %>
+  <%= will_paginate @messages %>
+  </ul>
+

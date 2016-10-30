@@ -1,0 +1,19 @@
+<div class="container">
+  <%if can? :create, Room%>
+      <%= button_to 'New Room', new_room_path, method: :get, class:'btn btn-default' %>
+  <% end %>
+ <h1>Rooms</h1>
+  <hr>
+  <div class="panel-group">
+       <% @rooms.each do |room| %>
+        <div class="panel panel-default">
+          <div class="panel-heading"> <%= room.title %>
+            <span class="badge"><%=room.messages.count%></span></div>
+          <div class="panel-body"><%= link_to 'Show', room %></div>
+
+        </div>
+    <% end %>
+
+  </div>
+  <%= will_paginate @rooms %>
+  </div>
